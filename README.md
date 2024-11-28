@@ -1,5 +1,6 @@
 # Recipe
 Design and implementation of recipe sharing system based on SpringBoot
+<<<<<<< HEAD
 
 本系统后端开发采用Java作为开发语言；以SpringBoot+MybatisPlus为作为后端开发框架实现业务处理和流程控制；前端开发采用Vue、ElementUI、Vant 框架，结合HTML+CSS+JavaScript 分别实现微信小程序用户端页面开发、管理员系统页面开发。
 
@@ -51,3 +52,5 @@ Design and implementation of recipe sharing system based on SpringBoot
 Recipe_wx.mp4是对微信小程序端的演示；
 
 RecipeAdmin.mp4是对web管理系统端的演示。
+=======
+>>>>>>> cbdb72a9510e75307e1d4301962abbb383df0fbf
