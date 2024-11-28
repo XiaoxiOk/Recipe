@@ -39,11 +39,11 @@ Design and implementation of recipe sharing system based on SpringBoot
 
 ## 功能结构图
 
-![功能结构图](.\show\func.png)
+![功能结构图](show/func.png)
 
 ## 数据库表设计
 
-![database-design](.\show\database-design.png)
+![database-design](show/database-design.png)
 
 ## 运行效果
 
