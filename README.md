@@ -39,11 +39,11 @@ Design and implementation of recipe sharing system based on SpringBoot
 
 ## 功能结构图
 
-![功能结构图](E:\work\graduate\功能结构图.png)
+![功能结构图](.\show\func.png)
 
 ## 数据库表设计
 
-![image-20241128193157410](C:\Users\86138\AppData\Roaming\Typora\typora-user-images\image-20241128193157410.png)
+![database-design](.\show\database-design.png)
 
 ## 运行效果
 
@@ -52,5 +52,3 @@ Design and implementation of recipe sharing system based on SpringBoot
 Recipe_wx.mp4是对微信小程序端的演示；
 
 RecipeAdmin.mp4是对web管理系统端的演示。
-=======
->>>>>>> cbdb72a9510e75307e1d4301962abbb383df0fbf
