@@ -1,0 +1,20 @@
+<!--pages/show-my-recipe/show-my-recipe.wxml-->
+<view class='recipe-show'>
+    <block wx:for="{{recipeList}}" wx:key="id">
+        <recipe-cross data-index="{{index}}" item="{{item}}" data-state="{{item.state}}" bindlongpress="showHandle" ></recipe-cross>
+    </block>
+    <block wx:if="{{recipeList.length == 0 }}">
+        <view class="tip-text">Hey,你还没发布菜谱噢~</view>
+    </block>
+</view>
+<!-- 自己发表的允许编辑/删除 -->
+<van-overlay z-index="2" show="{{ isShowHandle }}" bind:click="closeShowHandle">
+    <view class="wrapper">
+        <view class="block">
+            <van-button wx:if="{{toHandleRecipeState == 0}}" type="default" block bindtap="toEditRecipe">编辑</van-button>
+            <van-button type="default" block bindtap="toDelRecipe">删除</van-button>
+            <van-button type="default" block bindtap="closeShowHandle">取消</van-button>
+        </view>
+    </view>
+</van-overlay>
+<!-- end 博主/自己发表的允许删除 -->

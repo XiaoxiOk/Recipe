@@ -1,0 +1,16 @@
+<!--pages/usershare/usershare.wxml-->
+<view>
+    <view class="container">
+        <scroll-view scroll-y="true" scroll-into-view="{{toViewId}}">
+            <view wx:if="{{ userShareList.length > 0}}">
+                <block wx:for="{{ userShareList }}" wx:for-item="item" wx:key='id'>
+                  <share-card item="{{item}}" myId="{{myId}}" isShowFollowButton="{{isShowFollowButton}}" isUserSelf="{{myId == item.uid}}"></share-card>
+                </block>
+            </view>
+            <view wx:else>
+                <view class="tip-text">关注的人还未发布动态哦~</view>
+            </view>
+        </scroll-view>
+
+    </view>
+</view>

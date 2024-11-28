@@ -1,0 +1,96 @@
+/* pages/show-other-user/show-other-user.wxss */
+.container{
+    padding: 20rpx 20rpx;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
+ .avatar {
+    display:inline-block;
+    margin-left: 20rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+.show-icon{
+    width: 50rpx;
+    height: 50rpx;
+}
+ .do-follow-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 150rpx;
+    text-align: center;
+    font-size:32rpx !important;
+    color: rgb(240, 82, 42);
+    border-radius: 30px;
+    background-color:rgb(248, 215, 215);
+}
+.user-name{
+    display:inline-block;
+    margin: auto 35px;
+   font-weight:800;
+}
+ .un-follow-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 150rpx;
+    font-size:30rpx !important;
+    color: rgb(252, 162, 162);
+    border-radius: 30px;
+    background-color:rgb(245, 240, 240);
+}
+.userinfo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.userinfo view{
+    display: flex;
+    align-items: center;
+   
+}
+.other-info{
+    display: flex;
+    align-items: center;
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    margin-left: 50rpx;
+   justify-content: center;
+   padding-bottom: 30rpx;
+   border-bottom: 2rpx solid #eeee;
+}
+.follow-box{
+    margin-top:auto;
+    display: flex;
+    margin-left: 50rpx;
+    justify-content: center;
+}
+.item{
+    text-align: center;
+    margin-right: 40rpx;
+}
+.tit{
+    display: block;
+}
+.pos{
+    font-size: 80rpx;
+    line-height: 40rpx;
+    margin: 0 10rpx;
+}
+.list-cont{
+    justify-content: center;
+    
+}
+.tip-text{
+    box-sizing: border-box;
+    width:100%;
+    height: 200px;
+    display: flex;
+   margin-top: 20px;
+   align-items: center;
+   justify-content:center;
+}

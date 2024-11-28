@@ -1,0 +1,75 @@
+<!--pages/add-recipe/add-recipe.wxml-->
+<view class="container">
+
+   <view class="top_cover">
+    <text>请上传 封面图片/教程视频</text>
+    <upload-img dirType="recipeCover" maxCount="1" previewSize="100px" showStyle="width:96% !important;height:240px; display:block;margin:10rpx auto;" bind:myevent="uploadShowImgEvent"></upload-img>
+   </view>
+    <view class="basic-info">
+        <van-cell-group>
+            <van-field value="{{ recipeName }}" required auto-focus clearable icon="question-o" maxlength="50" placeholder="添加菜谱标题" size="large" bind:change="changeRecipeName" />
+
+            <van-field value="{{ detail }}" auto-focus placeholder="可以写下这道美食背后的故事、简介、提示哦~" type="textarea" autosize maxlength="255" bind:change="changeDetail" />
+        </van-cell-group>
+        <van-field value="{{ fieldValue }}" is-link readonly label="类别" placeholder="请选择所属类别" bind:tap="onClick" />
+        <van-popup show="{{ isShow }}" custom-style="height: 60%" round position="bottom">
+            <van-cascader wx:if="{{ isShow }}" value="{{ cascaderValue }}" title="请选择所属类别" options="{{ sortOptions }}" field-names="{{ fieldNames }}" bind:close="onClose" bind:change="onChange" bind:finish="onFinish" />
+        </van-popup>
+
+        <van-divider contentPosition="right" customStyle="color: black; border-color:#FFA07A; font-size: 18px;font-family: cursive, serif, sans-serif;">
+            烹饪难度
+        </van-divider>
+            <van-radio-group class="select-difficulty" value="{{ difficulty }}" bind:change="updateDifficulty" direction="horizontal">
+                <van-radio checked-color="#FF6347" name="1">零基础</van-radio>
+                <van-radio checked-color="#FF6347" name="2">容易</van-radio>
+                <van-radio checked-color="#FF6347" name="3">较难</van-radio>
+                <van-radio checked-color="#FF6347" name="4">压力大</van-radio>
+            </van-radio-group>
+        <van-divider />
+        <van-notify id="msg-selector" />
+        <!-- 用料信息录入 -->
+        <view class="material-whole">
+            <text class="left-title">用料</text>
+            <view class="materials-box" v-if="{{materials.length > 0 }}">
+                <block wx:for="{{ materials }}" wx:for-item="item" wx:key='unique'>
+                    <view class='material-line'>
+                        <textarea value="{{item.foodName}}" auto-height auto-focus class="textarea" data-index="{{index}}" placeholder="食材：如鸡蛋" maxlength="30" bindblur="bind_m_foodName"></textarea>
+                        <textarea value="{{item.consumption}}" auto-height class="textarea" data-index="{{index}}" placeholder="用量：如一只" maxlength="20" bindblur="bind_m_consumption"></textarea>
+                        <van-icon name="clear" color="red" wx:if="{{isShowDelMaterial}}" data-indextodel="{{index}}" bindtap="delMaterialItem" class="close" />
+                    </view>
+
+                </block>
+                <text class="notify-info" wx:if="{{ isHasExisted }}">食材中有重复名，请直接调整用量~</text>
+            </view>
+            <view class="material-handle">
+                <van-icon name="{{isShowDelMaterial==true?'success':'edit'}}" size="23px" color="{{isShowDelMaterial==true?'#FF6347':'#BC8F8F'}}" bindtap="changeShowDelMaterial" />
+                <van-button round size="small" color = "#FF6347" bind:tap="addMaterial">加一行</van-button>
+            </view>
+        </view>
+        <van-divider />
+        <!-- 做法步骤录入 -->
+        <view class="step-whole">
+            <text class="left-title">做法</text>
+            <view class="steps-box" v-if="{{steps.length > 0 }}">
+                <block wx:for="{{ steps }}" wx:for-item="item" wx:key='unique'>
+                    <view class='step-line'>
+                        <view class="step-title-line">
+                            <text class="step-title">步骤{{index+1}}</text>
+                            <van-icon name="clear" color="red" wx:if="{{isShowDelStep}}" data-indextodel="{{index}}" bindtap="delStepItem" class="close" />
+                        </view>
+
+                        <textarea value="{{item.description}}" auto-height auto-focus class="textarea" data-index="{{index}}" placeholder="填写步骤说明" maxlength="255" bindblur="bind_s_description"></textarea>
+                        
+                        <upload-img dirType="step" acceptType="image" maxCount="1" previewSize="200px" bind:myevent="uploadStepImgEvent" class="" data-index="{{index}}"></upload-img>
+                    </view>
+                </block>
+            </view>
+            <view class="step-handle">
+                <van-icon name="{{isShowDelStep==true?'success':'edit'}}" size="23px" color="{{isShowDelStep==true?'#FF6347':'#BC8F8F'}}" bindtap="changeShowDelStep" />
+                <van-button round size="small" color = "#FF6347" bind:tap="addStep">加一步</van-button>
+            </view>
+        </view>
+        <!-- 发布按钮 -->
+        <van-button color="linear-gradient(45deg, #f43f3b, #ec008c)" size="large" class="publish-button" bindtap="publishRecipe">发布</van-button>
+    </view>
+</view>

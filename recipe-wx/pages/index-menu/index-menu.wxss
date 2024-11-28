@@ -1,0 +1,14 @@
+/* pages/index-menu/index-menu.wxss */
+.recipe-show {
+    background: #fff;
+    margin-top: 20rpx;
+}
+.tip-text{
+    box-sizing: border-box;
+    width:100%;
+    height: 200px;
+    display: flex;
+   margin-top: 20px;
+   align-items: center;
+   justify-content:center;
+}

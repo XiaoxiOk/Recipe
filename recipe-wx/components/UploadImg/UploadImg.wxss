@@ -1,0 +1,46 @@
+/* components/UploadImg/UploadImg.wxss */
+ .el-upload{
+    width: 100%;
+  }
+ .el-upload .el-upload-dragger{
+    width: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: black;
+  }
+  .img-block {
+    position: relative;
+  }
+  .img-block .img{
+    z-index: 99;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  } 
+  .img-block .video{
+    /* width: 100%; */
+    max-width: 100%;
+    object-fit: cover;
+    /* max-height: 100vh; */
+  }
+  video {
+    display: inline-block;
+    height:200px;
+    line-height: 0;
+    /* overflow: hidden; */
+    position: relative;
+    width: 350px;
+    z-index: 0;
+}
+  .video-delete{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: calc(100vw - 8px);
+  }

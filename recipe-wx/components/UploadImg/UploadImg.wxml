@@ -1,0 +1,5 @@
+<!--components/UploadImg/UploadImg.wxml-->
+<view>
+    <van-uploader file-list="{{ fileList }}" max-count="{{ maxCount }}" preview-full-image="{{true}}" upload-icon="{{uploadIcon}}"	show-fullscreen-btn="false" accept='{{acceptType}}' max-size="{{maxSize}}" bind:oversize="tipOverSize" bind:after-read="afterRead" bind:delete="deleteImg"  preview-size="{{ previewSize }}" style="{{ showStyle }}" />
+    <van-notify id="showImg-selector" />
+</view>

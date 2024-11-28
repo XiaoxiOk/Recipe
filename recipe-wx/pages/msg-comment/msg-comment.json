@@ -1,0 +1,8 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "评论与回复",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "usingComponents": {}
+}

@@ -1,0 +1,98 @@
+var dateTimeFormat = function time_format(timeStr) {
+    // 判断时间戳是否为13位数，如果不是则*1000，时间戳只有13位数(带毫秒)和10(不带毫秒)位数的
+
+    var time = Date.parse(timeStr);
+    if (time.toString().length == 13) {
+        var tme = getDate(time);
+    } else {
+        var tme = getDate(time * 1000);
+    }
+    var Y = tme.getFullYear();
+    var M = (tme.getMonth() + 1 < 10 ? '0' + (tme.getMonth() + 1) : tme.getMonth() + 1);
+    var D = tme.getDate();
+    var h = tme.getHours();
+    var m = tme.getMinutes();
+    var s = tme.getSeconds();
+    tem1 = Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+    return tem1;
+}
+
+var getCommonDate = function time_format(timeStr) {
+    // 判断时间戳是否为13位数，如果不是则*1000，时间戳只有13位数(带毫秒)和10(不带毫秒)位数的
+
+    var time = Date.parse(timeStr);
+    if (time.toString().length == 13) {
+        var tme = getDate(time);
+    } else {
+        var tme = getDate(time * 1000);
+    }
+    var Y = tme.getFullYear();
+    var M = (tme.getMonth() + 1 < 10 ? '0' + (tme.getMonth() + 1) : tme.getMonth() + 1);
+    var D = tme.getDate();
+    var h = tme.getHours();
+    var m = tme.getMinutes();
+    tem1 = Y + '-' + M + '-' + D + ' ' + h + ':' + m
+    return tem1;
+}
+var getYearAndMonth = function getYearAndMonth(timeStr) {
+    // 判断时间戳是否为13位数，如果不是则*1000，时间戳只有13位数(带毫秒)和10(不带毫秒)位数的
+    var time = Date.parse(timeStr);
+    if (time.toString().length == 13) {
+        var tme = getDate(time);
+    } else {
+        var tme = getDate(time * 1000);
+    }
+    var Y = tme.getFullYear();
+    var M = (tme.getMonth() + 1 < 10 ? '0' + (tme.getMonth() + 1) : tme.getMonth() + 1);
+    tem1 = Y + '-' + M
+    return tem1;
+}
+
+// 根据生日的月份和日期，计算星座。
+var getAstro = function getAstro(timeStr) {
+    timeStr = timeStr.replace(".000+0000", "Z");
+
+    var tme = getDate(timeStr)
+    var M = (tme.getMonth() + 1 < 10 ? '0' + (tme.getMonth() + 1) : tme.getMonth() + 1);
+
+    var m = parseInt(M);
+    var d = parseInt(tme.getDate());
+
+    var astroStr = '魔羯水瓶双鱼白羊金牛双子巨蟹狮子处女天秤天蝎射手魔羯'
+    var index = m * 2 - (d < "102223444433".charAt(m - 1) - -19) * 2;
+    return astroStr.substring(index, index + 2);
+}
+
+var filterTime = function filterTime(time) {
+    var time = Date.parse(time)
+    if (time.toString().length == 13) {
+        var tme = getDate(time);
+    } else {
+        var tme = getDate(time * 1000);
+    }
+    var Y = tme.getFullYear();
+    var M = (tme.getMonth() + 1 < 10 ? '0' + (tme.getMonth() + 1) : tme.getMonth() + 1);
+    var D = tme.getDate();
+    console.log("Y-M-D:",Y,M,D)
+    tem1 = Y + '年' + M + '月' + D + '日'
+    return tem1
+}
+
+var getYMD = function getYMD(time){
+    var date = getDate(time)
+    var Y = date.getFullYear()
+    var M = date.getMonth() + 1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1 
+    var D = date.getDate()
+    console.log("Y-M-D:",Y,M,D)
+    return  Y + '年' + M + '月' + D + '日'
+}
+
+//导出
+module.exports = {
+    dateTimeFormat: dateTimeFormat,
+    getCommonDate: getCommonDate,
+    getYearAndMonth: getYearAndMonth,
+    getAstro: getAstro,
+    filterTime: filterTime,
+    getYMD: getYMD
+}

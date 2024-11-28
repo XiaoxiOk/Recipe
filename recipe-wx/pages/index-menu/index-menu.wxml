@@ -1,0 +1,10 @@
+<!--pages/index-menu/index-menu.wxml-->
+<view class='recipe-show'>
+    <van-divider contentPosition="center" customStyle="color:  #FF1493; border-color:#FF69B4; font-size: 12px; letter-spacing:4px" dashed="true">{{titleText}}</van-divider>
+    <block wx:for="{{recipeList}}" wx:key="id">
+        <recipe-cross data-index="{{index}}" item="{{item}}" data-state="{{item.state}}" bindlongpress="showHandle" ></recipe-cross>
+    </block>
+    <block wx:if="{{recipeList.length == 0 }}">
+        <view class="tip-text">Hey,暂无数据~</view>
+    </block>
+</view>

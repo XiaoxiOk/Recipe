@@ -1,0 +1,50 @@
+/* components/user-info/user-info.wxss */
+.info{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 2rpx solid rgb(248, 159, 159);  */
+    display: flex;
+    padding: 0 10rpx 10rpx;
+    flex-wrap: wrap;
+    background-color: #fff;
+    justify-content: space-between;
+
+}
+.info view{
+    display: flex;
+    align-items: center;
+}
+.info .avatar {
+    display:inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+.info .do-follow-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 150rpx;
+    text-align: center;
+    font-size:32rpx !important;
+    color: #fff;
+    border-radius: 30px;
+    background-color:rgb(238, 64, 20);
+}
+.info .user-name{
+    display:inline-block;
+    margin: auto 15px;
+}
+.info .un-follow-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 150rpx;
+    font-size:30rpx !important;
+    color: rgb(252, 162, 162);
+    border-radius: 30px;
+    background-color:rgb(245, 240, 240);
+}

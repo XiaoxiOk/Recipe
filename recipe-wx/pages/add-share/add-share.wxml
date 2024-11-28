@@ -1,0 +1,12 @@
+<!--pages/add-share/add-share.wxml-->
+<view class="container">
+      
+    <van-field value="{{ content }}" custom-style="margin:10px 1px;border: 1px solid white;height:auto" auto-focus placeholder="分享新鲜事和你爱的美食~" type="textarea" autosize maxlength="255" show-word-limit = "true"  bind:change = "changeContent" />
+    
+    <upload-img dirType="shareImage" maxCount="9" previewSize="80px" showStyle="width:100%;display:flex;" bind:myevent="uploadShowImgEvent"></upload-img>
+
+     <!-- 发布按钮 -->
+     <van-button color="linear-gradient(45deg, #f43f3b, #ec008c)" size="large" custom-style=
+     'margin-top:30rpx' bindtap="publishShare">发布</van-button>
+</view>
+

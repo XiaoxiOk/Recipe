@@ -1,0 +1,66 @@
+/* pages/show-fan/show-fan.wxss */
+.container{
+    background-color: #fff;
+    padding: 15rpx 0;
+}
+.fan-card{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height:auto;    /*自定义px时可测试分页*/
+    padding: 0 2%  0;
+    margin: 0 auto 10rpx;
+    /* border-bottom: 1rpx solid #eee; */
+    border-right: 0;
+    border-left: 0;
+    /* box-shadow: 0 0 5rpx #999; */
+}
+.card{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding: 0 10rpx 10rpx;
+    flex-wrap: wrap;
+    background-color: #fff;
+    align-items: center;
+
+}
+.card .user-info{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.card .avatar {
+    display:inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.card .do-follow-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 190rpx;
+    text-align: center;
+    font-size:32rpx !important;
+    color: #fff;
+    border-radius: 30px;
+    background-color:rgb(238, 64, 20);
+}
+.card .user-name{
+    display:inline-block;
+    margin: auto 15px;
+}
+.card .is-mutual-button{
+    display:inline-block;
+    margin: auto;
+    margin-right:5px !important;
+    width: 190rpx;
+    font-size:32rpx !important;
+    border-radius: 30px;
+    background-color:rgb(245, 240, 240);
+}

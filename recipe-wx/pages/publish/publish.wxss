@@ -1,0 +1,26 @@
+/* pages/publish/publish.wxss */
+.publish_box{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15vh 0;
+    box-sizing: border-box;
+}
+.publish_box view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2rpx solid #eee;
+    width: 50%;
+    padding: 50rpx 0;
+    border-radius: 10rpx;
+    box-shadow: 0 3rpx 8rpx #000;
+}
+.publish_box image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 50rpx;
+}

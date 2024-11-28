@@ -1,0 +1,8 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "消 息",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "usingComponents": {}
+}

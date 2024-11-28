@@ -1,0 +1,25 @@
+var follow_you = 1;
+var like_recipe = 2;
+var like_user_share = 3;
+var like_comment = 4;
+var like_reply = 5;
+var comment_recipe = 6;
+var comment_user_share = 7;
+var reply_you = 8;
+var admin_notify = 9;
+var system_notify = 10;
+var comment_type_recipe = 1;
+var comment_type_share = 2;
+
+exports.follow_you = follow_you;
+exports.like_recipe = like_recipe;
+exports.like_user_share = like_user_share;
+exports.like_comment = like_comment;
+exports.like_reply = like_reply;
+exports.comment_recipe = comment_recipe;
+exports.comment_user_share = comment_user_share;
+exports.reply_you= reply_you;
+exports.admin_notify = admin_notify;
+exports.system_notify = system_notify;
+exports.comment_type_recipe = comment_type_recipe;
+exports.comment_type_share = comment_type_share;

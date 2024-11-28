@@ -1,0 +1,111 @@
+/* pages/add-recipe/add-recipe.wxss */
+.basic-info{
+    padding: 5px;
+}
+.show-cover{
+    width: 100px;
+    height: 200px;
+    border: 2px violet solid;
+}
+
+.left-title{
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-family:"Lucida Calligraphy", cursive, serif, sans-serif;
+}
+.material-whole{
+    padding: 2px;
+}
+
+.materials-box{
+    display: block;
+}
+.materials-box .material-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10rpx 20rpx;
+    border-bottom: 1rpx dashed rgb(88, 81, 81); 
+    margin: 20rpx auto;
+    align-items: center; /*垂直居中*/
+}
+
+.materials-box .material-line .textarea{
+    width: 40%;
+    vertical-align: middle;
+    padding: 3px;
+    border: 1px solid #999 ;    
+}
+.materials-box .notify-info{
+    color: red;
+    font-size: 13px;
+}
+.material-handle{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+.step-whole{
+    padding: 2px;
+}
+.steps-box{
+    display: block;
+}
+
+.steps-box .step-line{
+    display: block;
+    margin: 0px 7rpx 30rpx;
+    border: 1px dashed #999;
+    align-items: center; /*垂直居中*/
+}
+.steps-box .step-line .step-title-line{
+    display: flex;
+    justify-content: space-between;
+}
+.steps-box .step-line .step-title{
+    display: inline-block;
+    margin: 10px 0;
+    padding-left: 10px;
+}
+.steps-box .step-line .textarea{
+    display: block;
+    padding: 5px 5px;
+    margin: 5px auto;
+    border: 1px solid #999;
+    width: 90%;
+    margin-left: 10px;
+    min-height: 50rpx;
+}
+.step-handle{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+.show-step-img{
+    width: 100px;
+    height: 200px;
+    border: 2px violet solid;
+}
+.publish-button{
+    letter-spacing: 2px;
+    margin:25px 0 5px 0;
+}
+.top_cover{
+    padding-top: 40rpx;
+    text-align: center;
+}
+.van-uploader__upload,.van-uploader,.van-uploader__preview-image,.van-uploader__preview{
+    width: 100% !important;
+    margin: 0 !important;
+    height: 240px !important;
+    box-sizing: border-box;
+}
+.select-difficulty{
+    display: flex;
+    flex-wrap: wrap;
+}
+.van-radio__label{
+    font-size: 38rpx;
+    margin-left: 10rpx;
+    padding: 0 !important;
+}

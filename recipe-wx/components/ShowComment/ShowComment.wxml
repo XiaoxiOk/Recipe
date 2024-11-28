@@ -1,0 +1,52 @@
+<!--comcomt-tiponents/ShowComment/ShowComment.wxml-->
+<wxs module="f" src="/wxs/dateUtils.wxs"></wxs>
+<view>
+    <view class="count-title">
+        共 {{count}} 条 评论
+    </view>
+    <view class="comt-tip" wx:if="{{count == 0}}">
+        快去抢沙发吧~
+    </view>
+    <view wx:else>
+        <view wx:for="{{commentList}}" wx:key="id">
+            <view class="cmt-item">
+                <image data-index="{{index}}"  bindtap="goToOtherUserPage" class="avatar" src='{{resourceRootPath ? resourceRootPath + item.profilePhoto : "" }}'></image>
+                <view class="cmt-user" data-index="{{index}}" bindtap="showInputDiag" bindlongpress="showDeleteDiag">
+                    <view class="user-name">{{item.userName}}</view>
+                    <view class="content-block">
+                        <view class="content">{{item.content}}</view>
+                        <text class="date">{{f.dateTimeFormat(item.createTime)}}</text>
+                    </view>
+                </view>
+                <view class="cmt-right">
+                <view data-index="{{index}}"  bindtap="updateDoIlikeThis">
+                    <van-icon wx:if="{{item.doILikeThis}}" name="like" color="red" />
+                    <van-icon wx:else name="like-o" />
+                </view>
+                    <text>{{item.likedCounts}}</text>
+                </view>
+            </view>
+            <slot name="slot-{{index+1}}"></slot>
+        </view>
+
+    </view>
+    <!-- 回复输入栏 -->
+    <van-action-sheet class="show-input" show="{{ isShowInput }}" bind:close="onCloseShowInput" title="回复 @{{basicReply.toUserName}}">
+        <view class="show-input-css">
+            <input model:value="{{ inputReplyContent }}" placeholder="爱评论的人运气不会差~" />
+            <button type="danger" bindtap="toSendReplyInfo">发送</button>
+        </view>
+    </van-action-sheet>
+    <!-- end 回复输入栏 -->
+
+    <!-- 博主/自己发表的允许删除 -->
+    <van-overlay z-index="2" show="{{ isShowDelete }}" bind:click="closeShowDelete">
+        <view class="wrapper">
+            <view class="block">
+                <van-button type="default" block bindtap="toDelComment">删除</van-button>
+                <van-button type="default" block bindtap="closeShowDelete">取消</van-button>
+            </view>
+        </view>
+    </van-overlay>
+    <!-- end 博主/自己发表的允许删除 -->
+</view>

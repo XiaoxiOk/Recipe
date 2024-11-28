@@ -1,0 +1,167 @@
+/* pages/user/user.wxss */
+
+page {
+  background-color: #f7f7f7;
+  padding-bottom: 60rpx;
+}
+
+/* 用户信息 */
+.userinfo {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  padding: 30rpx 0;
+}
+/* .avatar {
+    display:inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+.user-name{
+    display:inline-block;
+    margin: auto 15px;
+} */
+.userinfo .userinfo-avatar {
+  overflow: hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+.userinfo .userinfo-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+}
+.userinfo .other-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26rpx;
+    line-height: 30rpx;
+}
+.content-text-time{
+    font-size: 24rpx;
+    line-height: 30rpx;
+}
+ .show-icon{
+    width: 50rpx;
+    height: 50rpx;
+}
+/*end 用户信息 */
+
+/* 订单状态 */
+
+.list-cont {
+  
+  width: 100%;
+  background: #f7f7f7;
+  margin-top: 20rpx;
+}
+
+/*关注&粉丝*/
+.list-cont .follow-box {
+    background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25rpx;
+  height: 160rpx;
+}
+
+.list-cont .follow-box .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 列表项 */
+.list-cont .my-menu {
+  /* width: 100%; */
+  background-color: #fff;
+  margin-top:20rpx;
+}
+.list-cont .my-menu .memu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+  padding:0 30rpx;
+}
+.list-cont .my-menu .memu-item:nth-child(1) {
+  border-top: 2rpx solid #f7f7f7;
+}
+
+.list-cont .my-menu .memu-item:last-child {
+  border-bottom: none;
+}
+
+.list-cont .my-menu .memu-item text {
+  font-size: 30rpx;
+  letter-spacing: 1px;
+}
+.list-cont .my-menu .memu-item image{
+  width:70rpx;
+  height:70rpx;
+  margin-right:20rpx;
+
+}
+.list-cont .my-menu .memu-item .i-name{
+  display: flex;
+  align-items: center;
+}
+/* end 列表项 */
+
+/* 箭头 数字 文字*/
+.arrowhead {
+  width: 15rpx;
+  height: 15rpx;
+  border-top: 2rpx solid #999;
+  border-right: 2rpx solid #999;
+  transform: rotate(45deg);
+  margin-left: 10rpx;
+}
+
+ .num{
+  font-size: 16px;
+    font-weight: 700;
+    color: #ff0202;
+    font-family: Verdana;
+}
+
+.tit{
+  line-height: 20px;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
+
+/* 退出登录 */
+.log-out{
+	padding:20rpx;
+	text-align: center;
+	margin-top:20rpx;
+}
+.log-out-n{
+	font-size: 30rpx;
+	margin: 10px auto;
+	width:200rpx;
+	padding:20rpx;
+	border-radius: 10rpx;
+	background: #e43130;
+	color:#ffffff;
+}
+button.memu-btn.memu-item {
+  background-color: #fff;
+} 
+button.memu-btn.memu-item:after {
+  border: 0;
+}

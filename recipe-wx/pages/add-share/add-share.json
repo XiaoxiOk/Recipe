@@ -1,0 +1,9 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#222",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "upload-img":"../../components/UploadImg/UploadImg"
+    }
+}

@@ -1,0 +1,42 @@
+<!--pages/register-info/register-info.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+<view class="container">
+<view class="avatar-box">
+    <upload-img dirType="userAvatar" uploadIcon="user-o" maxCount="1" previewSize="100px" showStyle="width:100%;display:flex;" bind:myevent="uploadAvatarEvent"></upload-img>
+    <text>请上传头像</text>
+</view>
+
+<input type="nickname" class="name-input" bindblur="setUserName" placeholder="请输入昵称"/>
+<view class="gender-pick">
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ gender }}" bind:change="onChangeGender" options="{{ genderOption }}" />
+</van-dropdown-menu>
+</view>
+<view class="gender-pick-s">
+<van-cell-group>    
+    <van-cell title=" {{birthday==0? '请选择您的生日' :'您的生日：'}}"  value=" {{birthday==0? '':dateTool.getYMD(birthday)}}" is-link bind:click="showDatePicker" />
+    <text wx:if="{{birthday!=0}}"></text>
+</van-cell-group>
+</view>
+<!-- 发布按钮 -->
+<van-button color="linear-gradient(45deg, #f43f3b, #ec008c)" size="large" class="finish-button" bindtap="setUserInfo">完成</van-button>
+<van-popup
+  show="{{ showDatePicker }}"
+  round
+  position="bottom"
+  custom-style="height:80%"
+  bind:close="onCloseDatePicker"
+>
+<van-datetime-picker
+  type="date"
+  value="{{ currentDate }}"
+  bind:input="onInput"
+  min-date="{{ minDate }}"
+  max-date="{{maxDate}}"
+  formatter="{{ formatter }}"
+  bind:cancel="onCloseDatePicker"
+  bind:confirm="setSelectedDate"
+/>
+</van-popup>
+ 
+</view>

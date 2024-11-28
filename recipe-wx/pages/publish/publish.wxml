@@ -1,0 +1,14 @@
+<!--pages/publish/publish.wxml-->
+<view>
+    <view class="publish_box">
+        <view bindtap="goToAddRecipe">
+            <image src="../../images/icon/tuiguang02.png" mode=""/>
+            <text>上传菜谱</text>
+        </view>
+        <view bindtap="goToAddShare">
+            <image src="../../images/icon/tuiguang03.png" mode=""/>
+            <text>发布动态</text>
+        </view>
+    </view>
+
+</view>

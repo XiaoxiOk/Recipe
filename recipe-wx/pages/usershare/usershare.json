@@ -1,0 +1,9 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#222",
+    "navigationBarTitleText": "动 态",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+      "share-card":"/components/share-card/share-card"
+    }
+  }

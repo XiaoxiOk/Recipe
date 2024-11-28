@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='bg-sear'>
+        <view class="scrolltop">
+            <view class='section' bindtap='toSearchPage'>
+                <image src='../../images/icon/search.png' class='search-img'></image>
+                <text class='placeholder'>搜  索</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='content'>
+        <!-- swiper -->
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}" indicator-active-color="{{indicatorActiveColor}} " circular='true' class='pic-swiper' previous-margin='10rpx' next-margin='10rpx'>
+            <block wx:for='{{adList}}' wx:key='id'>
+                <swiper-item class="banner-item">
+                    <view class='img-box'>
+                        <image src='{{resourceRootPath ? resourceRootPath + item.imgUrl : "" }}' mode='scaleToFill' data-url='{{item.targetUrl}}' bindtap='toShowAdPage' class='banner'></image>
+                        <!-- <image src='{{item.imgUrl}}' mode='scaleToFill' data-url='{{item.targetUrl}}' bindtap='toShowAdPage' class='banner'></image> -->
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- end swiper -->
+
+        <view class='cat-item'>
+            <view class='item' bindtap='toClassifyPage' data-sts="1">
+                <image src='../../images/icon/newProd.png'></image>
+                <text>新谱上线</text>
+            </view>
+           
+            <view class='item' bindtap='toClassifyPage' data-sts="2">
+                <image src='../../images/icon/neweveryday.png'></image>
+                <text>每周热榜</text>
+            </view>
+          
+      <view class='item' bindtap='toClassifyPage' data-sts="3">
+        <image src='../../images/icon/newprods.png'></image>
+        <text>新手入门</text>
+      </view>
+        </view>
+    </view>
+    <van-divider contentPosition="center" customStyle="color: #FF6347; border-color: #DC143C; font-size: 12px;letter-spacing:4px" dashed="true">猜你喜欢</van-divider>
+    <scroll-view scroll-y="true" class='show-list' scroll-into-view="{{toViewId}}">
+    <view class="recipe-box" v-if="recommendList.length">
+        <block wx:for="{{ recommendList }}" wx:for-item="item" wx:key='id'>
+            <view class='recipe-card' bindtap="toRecipePage" data-recipeid="{{ item.id }}">
+                <image src='{{resourceRootPath ? resourceRootPath + item.showImage : "" }}' class='picture' mode="scaleToFill"></image>
+                <view class='title'>{{ item.recipeName }}</view>
+                    <image class="more" src="../../images/icon/ellipsis.png" mode=""/>
+            </view>
+            
+        </block>
+    </view>
+</scroll-view>
+<block wx:if="{{recommendList.length == 0}}">
+    <view class="tip-text">快去评分吧</view>
+                    <view class="tip-text">你的专属推荐后续也会有哦~</view>
+    </block>
+    <van-divider contentPosition="center" customStyle="color: #BA55D3; border-color: #BA55D3; font-size: 12px;letter-spacing:4px" dashed="true">大家爱看</van-divider>
+    <scroll-view scroll-y="true" class='show-list' scroll-into-view="{{toViewId}}">
+    <view class="recipe-box" v-if="recipeList.length">
+        <block wx:for="{{ recipeList }}" wx:for-item="item" wx:key='id'>
+            <view class='recipe-card' bindtap="toRecipePage" data-recipeid="{{ item.id }}">
+                <image src='{{resourceRootPath ? resourceRootPath + item.showImage : "" }}' class='picture' mode="scaleToFill"></image>
+                <view class='title'>{{ item.recipeName }}</view>
+                    <image class="more" src="../../images/icon/ellipsis.png" mode=""/>
+            </view>
+            
+        </block>
+    </view>
+</scroll-view>
+</view>
+<wxs module="wxs" src="../../wxs/number.wxs" />

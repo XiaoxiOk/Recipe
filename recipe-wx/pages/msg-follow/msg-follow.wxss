@@ -1,0 +1,63 @@
+/* pages/msg-follow/msg-follow.wxss */
+.container{
+    background-color: #fff;
+    padding: 15rpx 0;
+}
+.msg-card{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: auto;   /*自定义px时可测试分页*/
+    padding: 0 2%  0;
+    margin: 0 auto 10rpx;
+    /* border-bottom: 1rpx solid #eee; */
+    border-right: 0;
+    border-left: 0;
+    /* box-shadow: 0 0 5rpx #999; */
+}
+.card{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding: 0 10rpx 10rpx;
+    flex-wrap: wrap;
+    background-color: #fff;
+    align-items: center;
+
+}
+.user-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15rpx;
+}
+ .avatar {
+    display:inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+.column-info{
+    display: flex;
+}
+.column-info image{
+    margin-right: 20rpx;
+}
+.tip-text{
+    font-weight:550;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.block {
+    width: 120px;
+    background-color: #fff;
+}

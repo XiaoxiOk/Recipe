@@ -1,0 +1,21 @@
+<!--pages/login/login.wxml-->
+<image src='../../images/logo.png' class='logo-img'></image>
+<view class="login-form">
+    <view>
+        <button class="authorized-btn" bindtap="showPopUp">手机号一键登录</button>
+        <!-- <button class="to-idx-btn" bindtap="toHomePage">快速回到首页</button> -->
+    </view>
+    <view class="tips">
+        若未使用过，将为您直接注册
+    </view>
+    <van-popup show="{{ isShow }}" round position="bottom" custom-style="height:40%" bind:close="onClose">
+        <view class="title-tip">授权注册/登录</view>
+        <view class="show-input-css">
+            <input type="number" model:value="{{ mobileInput }}" placeholder="请输入手机号" bindinput="bind_mobile" />
+            <button type="danger" bindtap="judgeRegisterAndLogin">授权</button>
+        </view>
+        <view class="error-tip">
+        {{errorMsg}}
+    </view>
+    </van-popup>
+</view>

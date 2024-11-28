@@ -1,0 +1,20 @@
+<!--components/recipe-card/recipe-card.wxml-->
+
+<view class='show-item' bindtap='toRecipePage' data-recipeid="{{item.id}}">
+    <image wx:if='{{ item.showImage.length > 0 }}' src='{{ item.showImage ? resourceRootPath + item.showImage : "" }}' lazy-load="true" mode="scaleToFill" class='show-image'></image>
+    <view class='content-right'>
+        <view class='title'>{{item.recipeName}}</view>
+        <view class="difficulty">
+        
+        <text>难度</text><van-rate readonly value="{{ item.difficulty}}" size="16px" count="4"/>
+        </view>
+        
+        <view class='detail'>{{item.detail}}</view>
+        
+        <view class='user-info'>
+            <image src='{{resourceRootPath ? resourceRootPath + item.profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+            <view class='user-name'>{{ item.userName }}</view>
+        </view>
+
+    </view>
+</view>

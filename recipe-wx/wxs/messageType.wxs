@@ -1,0 +1,36 @@
+// var msg_type = {
+//     follow_you:1,
+//     like_recipe : 2,
+//     like_user_share : 3,
+//     like_comment : 4,
+//     like_reply : 5,
+//     comment_recipe : 6,
+//     comment_user_share : 7,
+//     reply_you : 8,
+//     admin_notify : 9,
+//     system_notify : 10,
+// }
+
+
+var getTextTipByMsgType = function getTextTip(msgType){
+    var textTip = ""
+    switch(msgType){
+        case 1: textTip = "关注了你";break;
+        case 2: textTip = "收藏了你的菜谱";break;
+        case 3: textTip = "点赞了你的动态";break;
+        case 4: textTip = "点赞了你的评论";break;
+        case 5: textTip = "点赞了你的回复";break;
+        case 6: textTip = "评论了你的菜谱";break;
+        case 7: textTip = "评论了你的动态";break;
+        case 8: textTip = "回复了你";break;
+        case 9: textTip = "管理员通知：";break;
+        case 10: textTip = "系统通知:";break;
+        default:"" 
+    }
+    return textTip
+}
+
+//导出
+module.exports = {
+    getTextTipByMsgType: getTextTipByMsgType,
+  }

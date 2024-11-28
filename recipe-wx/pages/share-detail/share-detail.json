@@ -1,0 +1,12 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "动态详情",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "show-comment": "/components/ShowComment/ShowComment",
+        "show-reply": "/components/ShowReply/ShowReply",
+        "user-info":"/components/user-info/user-info"
+      }
+}

@@ -1,0 +1,92 @@
+/* components/ShowReply/ShowReply.wxss */
+.cmt-item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: start;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    margin-bottom: 50rpx;
+}
+
+.show-input-css{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10rpx 10rpx 30rpx;
+    align-items: center;
+}
+.show-input-css input{
+    border: 1px solid #ddd;
+    width: calc(100% - 200rpx);
+    height: 70rpx;
+    box-sizing: border-box;
+    padding-left: 10rpx;
+    font-size: 40rpx;
+    line-height: 70rpx;
+}
+.show-input-css button{
+    background-color: red;
+    color: #fff;
+    width: 180rpx;
+    height: 80rpx;
+    font-size: 40rpx;
+    line-height: 80rpx;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.avatar {
+    display:inline-block;
+    width: 70rpx;
+    height: 70rpx;
+    border: 1px solid #5a5656;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.reply-user{
+    margin: 0 20rpx;
+    text-align: left;
+    width: calc(100% - 100rpx);
+}
+.show-name{
+    display: flex;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    align-items: center;
+}
+.show-name text{
+    margin: 0 5rpx;
+    color: #333;
+}
+.user-name,.date{
+    font-size: 30rpx;
+    color: #666;
+    line-height: 40rpx;
+}
+.date{
+    font-size: 26rpx;
+}
+.content-block{
+    font-size: 38rpx;
+    line-height: 50rpx;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+.cmt-right{
+    text-align: center;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .block {
+    width: 120px;
+    background-color: #fff;
+  }

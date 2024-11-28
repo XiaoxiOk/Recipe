@@ -1,0 +1,83 @@
+<!--pages/share-detail/share-detail.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+<view>
+
+    <view class='usershare-card'>
+        <!-- <view class="info"> 
+                <image src='{{resourceRootPath ? resourceRootPath + profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+                <view class='user-name'>{{ userName }}</view>
+                <block wx:if="{{myId != userId}}">
+                <block wx:if="{{!doIFollowWriter}}">
+                    <button class="do-follow-button">关注</button>
+                </block>
+                <block wx:else="{doIFollowWriter}}">
+                    <button class="un-follow-button">已关注</button>
+                </block>
+                </block>
+            </view> -->
+        <user-info style="width: 100%;" myId="{{myId}}" userId="{{userId}}" userName="{{userName}}" profilePhoto="{{profilePhoto}}" isUserSelf="{{myId == userId}}" doIFollowWriter="{{doIFollowWriter}}">
+        </user-info>
+        <view style="width: 100%;">
+            <text class="content">{{ content }}</text>
+            <view class="content_img" wx:if="{{mediaList.length>0}}">
+                <block wx:for="{{mediaList}}" wx:for-item="itemMedia" wx:key="id" class="media-box">
+                    <image wx:if="{{ itemMedia.fileUrl == itemMedia.coverUrl }}" mode="{{ imageFit }}" src="{{ resourceRootPath+itemMedia.fileUrl }}" class="show-media" style="{{ computed.sizeStyle({ previewSize }) }}" data-index="{{ index }}" bindtap="onPreviewImage" />
+                    <video wx:elif="{{itemMedia.fileUrl != itemMedia.coverUrl }}" src="{{resourceRootPath + itemMedia.fileUrl }}" title="{{ content || ('视频' + index) }}" poster="{{ resourceRootPath + itemMedia.coverUrl }}" autoplay="{{ false }}" class="show-media" show-fullscreen-btns="{{ false }}" style="{{ computed.sizeStyle({ previewSize }) }}" data-index="{{ index }}" bindtap="onPreviewVideo">
+                    </video>
+                </block>
+            </view>
+        </view>
+
+        <view class="handle-line">
+            <view>
+                <view bindtap='addOrCannelLike'>
+                    <image wx:if="{{ doILikeThis }}" src="../../images/icon/like.png" mode="scaleToFill" class="handle-icon"></image>
+                    <image wx:else="{{ !doILikeThis }}" src="../../images/icon/_like.png" mode="scaleToFill" class="handle-icon"></image>
+                </view>
+                <text class="show-counts">{{ likedCounts }}</text>
+
+
+                <block>
+                    <image src="../../images/icon/comment.png" mode="scaleToFill" class="handle-icon" bindtap="showInputCmtDiag"></image>
+                    <text class="show-counts">{{ commentCounts }}</text>
+                </block>
+            </view>
+            <view>
+                <block>
+                    <image src="../../images/icon/time.png" mode="scaleToFill" class="time-icon"></image>
+                    <text>{{dateTool.getCommonDate(createTime)}}</text>
+                </block>
+            </view>
+        </view>
+
+
+    </view>
+    <view class="comment-box">
+        <!-- 评论 -->
+        <show-comment bind:toSendReplyInfo="toAddNewReply" bind:toDelComment="toDeleteComment" count="{{ commentCounts }}" upUserId="{{userId}}" commentList="{{commentList}}">
+            <block wx:for="{{commentList}}" wx:key="id">
+                <view class="reply-box" slot="slot-{{index+1}}">
+                    <view class="reply-tip" wx:if="{{item.repliedCounts > 0 && item.isShowReply != true}}">
+                        <text data-index="{{index}}" bindtap="goToShowReply">展开{{item.repliedCounts}}条回复</text>
+                    </view>
+                    <view wx:if="{{item.isShowReply}}">
+                        <show-reply data-index="{{index}}" id="show-reply" bind:toAddReply="toAddReplyInCmt" bind:toDelReply="toDeleteReply" upUserId="{{userId}}" replyList="{{ item.replyList }}"></show-reply>
+                        <view class="reply-tip" wx:if="{{item.replyList.length <  item.repliedCounts }}">
+                            <text data-index="{{index}}" bindtap="goToAddReplyPage">展开更多回复</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </show-comment>
+        <!-- end 评论 -->
+
+    </view>
+    <!-- 底部点击评论-输入栏 -->
+    <van-action-sheet class="show-input" title="评论该动态" show="{{ isShowCmtInput }}" bind:close="closeShowCmtInput">
+        <view class="show-input-css">
+            <input model:value="{{ inputCmtContent }}" placeholder="爱评论的人运气不会差~" />
+            <button type="danger" bindtap="toAddCmtInfo">发送</button>
+        </view>
+    </van-action-sheet>
+    <!-- end 底部点击评论-输入栏 -->
+</view>

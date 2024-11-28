@@ -1,0 +1,16 @@
+//点赞类型枚举，对应后端
+function likeType(val) {
+    var result = 0;
+    var getTypeByName={
+    "RECIPE": 1, //"菜谱"
+    "USER_SHARE": 2, //"用户动态"
+    "COMMENT": 3, //"评论"
+    "REPLY": 4,//"回复的评论"
+    }
+    result = getTypeByName[val];
+    return result;
+    }
+    
+    export const likeType = likeType;
+      
+      

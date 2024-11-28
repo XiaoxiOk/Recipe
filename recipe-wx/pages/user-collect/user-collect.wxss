@@ -1,0 +1,5 @@
+/* pages/user-collect/user-collect.wxss */
+.cont-item {
+    padding: 0 20rpx 20rpx 20rpx;
+    margin-top: 0;
+  }

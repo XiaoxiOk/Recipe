@@ -1,0 +1,19 @@
+<!--pages/show-my-share/show-my-share.wxml-->
+<view class='share-show'>
+    <block wx:for="{{shareList}}" wx:key="id" wx:for-item="item">
+        <share-card data-index="{{index}}" bindlongpress="showHandle" item="{{item}}" myId="{{myId}}" isUserSelf="{{myId == item.uid}}"></share-card>
+    </block>
+    <block wx:if="{{shareList.length == 0}}">
+                    <view class="tip-text">空空如也~</view>
+    </block>
+</view>
+<!-- 自己发表的动态允许删除 -->
+<van-overlay z-index="2" show="{{ isShowHandle }}" bind:click="closeShowHandle">
+    <view class="wrapper">
+        <view class="block">
+            <van-button type="default" block bindtap="toDelShare">删除</van-button>
+            <van-button type="default" block bindtap="closeShowHandle">取消</van-button>
+        </view>
+    </view>
+</van-overlay>
+<!-- end 自己发表的动态允许删除 -->

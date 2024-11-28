@@ -1,0 +1,31 @@
+<!--pages/show-follow/show-follow.wxml-->
+<view class="container">
+    <scroll-view scroll-y="true">
+        <view v-if="followList.length">
+            <block wx:for="{{ followList }}" wx:for-item="item" wx:key='id'>
+                <view class='follow-card' bindtap="" data-followid="{{ item.userId }}">
+                    <view class="card">
+                        <view class="user-info" data-index="{{index}}" bindtap="goToOtherUserPage">
+                            <image src='{{resourceRootPath ? resourceRootPath + item.profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+                            <view class='user-name'>{{ item.userName }}</view>
+
+                        </view>
+                        <block wx:if="{{!item.mutual}}">
+                            <button class="is-follow-button" data-index="{{index}}" bindtap="updateFollowInfo">
+                                <van-icon name="success" /> 已关注
+                            </button>
+                        </block>
+
+                        <block wx:else="{{item.mutual}}">
+                            <button class="is-mutual-button" data-index="{{index}}" bindtap="updateFollowInfo">
+                                <van-icon name="exchange" /> 已互关
+                            </button>
+                        </block>
+                    </view>
+                </view>
+                <van-divider />
+            </block>
+
+        </view>
+    </scroll-view>
+</view>

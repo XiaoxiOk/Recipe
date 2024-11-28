@@ -1,0 +1,106 @@
+/* pages/msg-comment/msg-comment.wxss */
+.container{
+    background-color: #fff;
+    padding: 15rpx 0;
+}
+.msg-card{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: auto;   /*自定义px时可测试分页*/
+    padding: 0 15rpx;
+    /* border-bottom: 1rpx solid #eee; */
+    border-right: 0;
+    border-left: 0;
+    /* box-shadow: 0 0 5rpx #999; */
+    justify-content: space-between;
+}
+.t{
+    display: flex;
+    align-items: center;
+    width: 100%;
+   margin-bottom: 10rpx;
+}
+.t_l{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.t_content{
+    display: block;
+    align-items: center;
+    margin-left: 10rpx;
+    width: 100%;
+}
+.t_content view:nth-child(2){
+    margin: 12rpx 0;
+}
+.t_c{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 32rpx;
+    align-items: center;
+}
+.t_c view:nth-child(2){
+    margin: 0 15rpx;
+}
+.t_r{
+    font-size: 26rpx;
+}
+.b{
+  /*   display: block; */
+    font-size: 30rpx;
+    text-align: center;
+    width: 30%;
+}
+.card{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding: 0 10rpx;
+    flex-wrap: wrap;
+    background-color: #fff;
+    align-items: center;
+
+}
+.orgin-content{
+    margin-bottom: 15rpx;
+    font-style: italic;
+}
+.user-info{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+ .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30rpx;
+}
+.recipe-cover{
+    width: 120rpx;
+    height: 120rpx;
+    border: 1px solid rgb(90, 86, 86);
+    /* border-radius: 40px; */
+    overflow: hidden;
+    margin-bottom: 15rpx;
+}
+.tip-text{
+    font-weight:bold;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.block {
+    width: 120px;
+    background-color: #fff;
+}
+

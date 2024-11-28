@@ -1,0 +1,8 @@
+<!--pages/user-collect/user-collect.wxml-->
+<view class='cont-item'>
+    <scroll-view scroll-y="true">
+      <block wx:for='{{likeRecipeList}}' wx:key="index">
+        <recipe-card item="{{item}}" ></recipe-card>
+      </block>
+    </scroll-view>
+</view>

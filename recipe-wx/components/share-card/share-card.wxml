@@ -1,0 +1,47 @@
+<!--components/share-card/share-card.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+<view class='usershare-card'>
+    <!-- user-info -->
+    <user-info style="width: 100%;" myId="{{myId}}" userId="{{item.uid}}" userName="{{item.userName}}" profilePhoto="{{item.profilePhoto}}" isUserSelf="{{isUserSelf}}" doIFollowWriter="{{item.doIFollowWriter}}">
+    </user-info>
+    <view style="width: 100%;" data-usershareid="{{item.id}}" >
+        <text class="content">{{ item.content }}</text>
+        <view class="content_img" wx:if="{{item.mediaList.length>0}}">
+            <block wx:for="{{item.mediaList}}" wx:for-item="itemMedia" wx:key="id" class="media-box">
+                <image wx:if="{{ itemMedia.fileUrl == itemMedia.coverUrl }}" mode="{{ imageFit }}" src="{{ resourceRootPath+itemMedia.fileUrl }}" class="show-media" style="{{ computed.sizeStyle({ previewSize }) }}" data-index="{{ index }}" bindtap="onPreviewImage" />
+                <video wx:elif="{{itemMedia.fileUrl != itemMedia.coverUrl }}" src="{{resourceRootPath + itemMedia.fileUrl }}" title="{{ item.content || ('视频' + index) }}" poster="{{ resourceRootPath + itemMedia.coverUrl }}" autoplay="{{ false }}" class="show-media" show-fullscreen-btns="{{ false }}" style="{{ computed.sizeStyle({ previewSize }) }}" data-index="{{ index }}" bindtap="onPreviewVideo">
+                </video>
+            </block>
+        </view>
+    </view>
+
+    <!-- 点赞、评论 -->
+    <view class="handle-line">
+
+        <view class="like-box">
+            <view data-index="{{index}}" bindtap="updateLikeShare">
+                <block wx:if="{{ item.doILikeThis }}">
+                    <image src="../../images/icon/like.png" mode="scaleToFill" class="handle-icon"></image>
+                </block>
+                <block wx:else="{{ !item.doILikeThis }}">
+                    <image src="../../images/icon/_like.png" mode="scaleToFill" class="handle-icon" />
+                </block>
+                <text class="show-counts">{{ item.likedCounts }}</text>
+            </view>
+
+
+            <view style="width: 100%;" data-usershareid="{{item.id}}" bindtap="goToShareDetail">
+                <image src="../../images/icon/comment.png" mode="scaleToFill" class="handle-icon"></image>
+                <text class="show-counts">{{ item.commentCounts }}</text>
+            </view>
+        </view>
+        <view>
+            <block>
+                <image src="../../images/icon/time.png" mode="scaleToFill" class="time-icon"></image>
+                <text>{{dateTool.getCommonDate(item.createTime)}}</text>
+            </block>
+        </view>
+    </view>
+
+    <!--end 点赞、评论 -->
+</view>

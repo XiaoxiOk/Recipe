@@ -1,0 +1,123 @@
+<!-- 菜谱详情 -->
+<view class="container" id="container">
+
+    <!-- 菜谱封面信息 -->
+    <view class='recipe-info'>
+        <block wx:if="{{showImage.length>0 && mediaUrl.length>0}}">
+            <image wx:if="{{  showImage == mediaUrl }}" src='{{mediaUrl ? resourceRootPath + mediaUrl : "" }}' class='showImage' bindtap="onPreviewImage" mode="scaleToFill"></image>
+            <video wx:elif="{{showImage != mediaUrl }}" src="{{mediaUrl?resourceRootPath + mediaUrl:'' }}" poster="{{showImage? resourceRootPath + showImage:'' }}" autoplay="{{ false }}" class="showImage" show-fullscreen-btns="{{ false }}" bindtap="onPreviewVideo">
+            </video>
+        </block>
+
+        <view class="title">
+            <view class="recipe-name">{{recipeName}}</view>
+        </view>
+    </view>
+    <!-- end 菜谱封面信息 -->
+
+    <view class="box_css">
+
+        <!-- 用户+Detail -->
+        <view class="user-detail">
+            <!-- user-info -->
+            <user-info myId="{{myId}}" isShowFollowButton="{{true}}" userId="{{userId}}" userName="{{userName}}" profilePhoto="{{profilePhoto}}" isUserSelf="{{myId == userId}}" doIFollowWriter="{{doIFollowWriter}}">
+            </user-info>
+            <rich-text class="content">{{ detail }}</rich-text>
+        </view>
+        <!-- end 用户+Detail -->
+        <!-- 用料 -->
+        <view class="materials-box">
+            <scroll-view scroll-y="true">
+                <view wx:if="{{materials.length>0}}">
+
+                    <text class="title_yl">用料</text>
+                    <block wx:for="{{ materials }}" wx:for-item="item" wx:key='id'>
+                        <view class='material-item'>
+                            <text>{{ item.foodName }}</text>
+                            <text>{{ item.consumption }}</text>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <!-- end 用料 -->
+
+        <!-- 步骤 -->
+        <view class="steps-box">
+            <scroll-view scroll-y="true">
+                <view v-if="steps.length">
+
+                    <block wx:for="{{ steps }}" wx:for-item="item" wx:key='id'>
+                        <text class="title_step">步骤{{item.seqNumber}}</text>
+                        <view class='step-item'>
+
+                            <image wx:if='{{ item.imgUrl.length > 0 }}' src='{{ item.imgUrl ? resourceRootPath + item.imgUrl : "" }}' lazy-load="true" mode="scaleToFill"></image>
+
+
+                            <text>{{ item.description }}</text>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <!-- end 用料 -->
+        <view class="rate-box" id="rateBox">
+        <text>您对它的评价：</text>
+            <van-rate value="{{ rateValue }}" icon="like" void-icon="like-o" bind:change="onChangeRate" />
+
+        </view>
+        <!-- 评论 -->
+        <show-comment bind:toSendReplyInfo="toAddNewReply" bind:toDelComment="toDeleteComment" count="{{ commentCounts }}" upUserId="{{userId}}" commentList="{{commentList}}">
+            <block wx:for="{{commentList}}" wx:key="id">
+                <view class="reply-box" slot="slot-{{index+1}}">
+                    <view class="reply-tip" wx:if="{{item.repliedCounts > 0 && item.isShowReply != true}}">
+                        <text data-index="{{index}}" bindtap="goToShowReply">展开{{item.repliedCounts}}条回复</text>
+                    </view>
+                    <view wx:if="{{item.isShowReply}}">
+                        <show-reply data-index="{{index}}" id="show-reply" bind:toAddReply="toAddReplyInCmt" bind:toDelReply="toDeleteReply" upUserId="{{userId}}" replyList="{{ item.replyList }}"></show-reply>
+                        <view class="reply-tip" wx:if="{{item.replyList.length <  item.repliedCounts }}">
+                            <text data-index="{{index}}" bindtap="goToAddReplyPage">展开更多回复</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </show-comment>
+        <!-- end 评论 -->
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="cart-footer {{findSku?'':'gray'}}">
+        <view class="btn icon" bindtap='toHomePage'>
+            <image src="../../images/tabBarIcons/_home.png"></image>
+            首页
+        </view>
+        <view class="input_box">
+            <button class="input_css" bindtap="showInputCmtDiag">去评论吧~</button>
+        </view>
+        <view class="footer-right">
+            <view class="do-cancel-like" bindtap='addOrCannelLike'>
+                <image wx-if="{{ !doILikeThis }}" src="../../images/icon/star-empty.png" class="handle-icon"></image>
+                <image wx-if="{{ doILikeThis }}" src="../../images/icon/star-red.png"></image>
+            </view>
+            <text>{{likedCounts}}</text>
+        
+            <view bindtap="locateComments">
+                <image src="../../images/icon/detail-comment.png" class="handle-icon"></image>
+            </view>
+            <text>{{commentCounts}}</text>
+        </view>
+
+    </view>
+    <!-- end 底部按钮 -->
+
+    <!-- 底部点击评论-输入栏 -->
+    <van-action-sheet class="show-input" title="评论该菜谱" show="{{ isShowCmtInput }}" bind:close="closeShowCmtInput">
+        <view class="show-input-css">
+            <input model:value="{{ inputCmtContent }}" placeholder="爱评论的人运气不会差~" />
+            <button type="danger" bindtap="toAddCmtInfo">发送</button>
+        </view>
+    </van-action-sheet>
+    <!-- end 底部点击评论-输入栏 -->
+
+</view>
+<wxs module="wxs" src="../../wxs/number.wxs" />

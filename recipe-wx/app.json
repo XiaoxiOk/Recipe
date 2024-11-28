@@ -1,0 +1,105 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/index/index",
+        "pages/user/user",
+        "pages/register-info/register-info",
+        "pages/category/category",
+        "pages/logs/logs",
+        "pages/publish/publish",
+        "pages/recipe-detail/recipe-detail",
+        "pages/search-page/search-page",
+        "pages/search-recipe-show/search-recipe-show",
+        "pages/usershare/usershare",
+        "pages/add-recipe/add-recipe",
+        "pages/add-share/add-share",
+        "components/ShowComment/ShowComment",
+        "components/ShowReply/ShowReply",
+        "pages/show-follow/show-follow",
+        "pages/user-collect/user-collect",
+        "components/recipe-card/recipe-card",
+        "components/recipe-cross/recipe-cross",
+        "components/user-info/user-info",
+        "components/share-card/share-card",
+        "pages/message-index/message-index",
+        "pages/show-fan/show-fan",
+        "pages/show-my-recipe/show-my-recipe",
+        "pages/show-my-share/show-my-share",
+        "pages/edit-recipe/edit-recipe",
+        "pages/share-detail/share-detail",
+        "pages/show-other-user/show-other-user",
+        "pages/msg-follow/msg-follow",
+        "pages/msg-like/msg-like",
+        "pages/msg-comment/msg-comment",
+        "pages/user-edit/user-edit",
+        "pages/index-menu/index-menu"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#7a7e83",
+        "borderStyle": "black",
+        "selectedColor": "#ff0000",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabBarIcons/_home.png",
+                "selectedIconPath": "images/tabBarIcons/home.png"
+            },
+            {
+                "pagePath": "pages/category/category",
+                "text": "分类",
+                "iconPath": "images/tabBarIcons/_sort.png",
+                "selectedIconPath": "images/tabBarIcons/sort.png"
+            },
+            {
+                "pagePath": "pages/publish/publish",
+                "iconPath": "images/tabBarIcons/_publish.png",
+                "selectedIconPath": "images/tabBarIcons/publish.png"
+            },
+            {
+                "pagePath": "pages/usershare/usershare",
+                "text": "动态",
+                "iconPath": "images/tabBarIcons/_share.png",
+                "selectedIconPath": "images/tabBarIcons/share.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/user/user",
+                "iconPath": "images/tabBarIcons/_mine.png",
+                "selectedIconPath": "images/tabBarIcons/mine.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "van-button": "miniprogram_npm/@vant/weapp/button/index",
+        "van-divider": "miniprogram_npm/@vant/weapp/divider/index",
+        "van-rate": "miniprogram_npm/@vant/weapp/rate/index",
+        "van-icon": "miniprogram_npm/@vant/weapp/icon/index",
+        "van-field": "miniprogram_npm/@vant/weapp/field/index",
+        "van-uploader": "miniprogram_npm/@vant/weapp/uploader/index",
+        "van-dropdown-menu": "miniprogram_npm/@vant/weapp/dropdown-menu/index",
+        "van-dropdown-item": "miniprogram_npm/@vant/weapp/dropdown-item/index",
+        "van-notify": "miniprogram_npm/@vant/weapp/notify/index",
+        "van-radio": "miniprogram_npm/@vant/weapp/radio/index",
+        "van-radio-group": "miniprogram_npm/@vant/weapp/radio-group/index",
+        "van-cascader": "miniprogram_npm/@vant/weapp/cascader/index",
+        "van-popup": "miniprogram_npm/@vant/weapp/popup/index",
+        "van-action-sheet": "miniprogram_npm/@vant/weapp/action-sheet/index",
+        "van-overlay": "miniprogram_npm/@vant/weapp/overlay/index",
+        "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+        "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+        "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+        "van-datetime-picker": "/miniprogram_npm/@vant/weapp/datetime-picker/index",
+        "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+        "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+        "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index"
+    }
+}

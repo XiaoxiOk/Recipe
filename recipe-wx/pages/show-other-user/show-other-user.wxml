@@ -1,0 +1,85 @@
+<!--pages/show-other-user/show-other-user.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+<view class='container'>
+    <!-- 用户信息 -->
+    <view class='userinfo'>
+        <view>
+            <image src='{{resourceRootPath ? resourceRootPath + profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+            <view class='user-name'>{{ userName }}</view>
+            
+        </view>
+        <block wx:if="{{myId!=userId}}">
+            <block wx:if="{{!doIFollowThisUser}}">
+                <button class="do-follow-button"  bindtap="updateFollowInfo">关注</button>
+            </block>
+            <block wx:else="{{doIFollowThisUser}}">
+                <button class="un-follow-button"  bindtap="updateFollowInfo">已关注</button>
+            </block>
+        </block>
+        
+    </view>
+    <view class='list-cont'>
+        <!-- 关注/粉丝 -->
+        <view class='follow-box'>
+            <view class='item'>
+                <text class="num">{{thisFollowsCounts}}</text>
+                <text class="tit">关注</text>
+            </view>
+            <view class='item'>
+                <text class="num">{{thisFansCounts}}</text>
+                <text class="tit">粉丝</text>
+            </view>
+        </view>
+        <!--end 关注/粉丝 -->
+
+    </view>
+    <view class="other-info">
+        <block wx:if="{{gender == 1}}">
+            <image src="/images/icon/user-boy.png" class="show-icon"></image>
+        </block>
+        <block wx:if="{{gender == 2}}">
+            <image src="/images/icon/user-girl.png" class="show-icon"></image>
+        </block>
+        <text class="content-text-astro"> {{dateTool.getAstro(birthday)}}座</text>
+        <text class="pos">·</text>
+        <text class="content-text-time">{{dateTool.getYearAndMonth(createTime)}}加入</text>
+    </view>
+
+
+    <!-- end 用户信息 -->
+
+
+
+
+    <view class="show-box">
+        <van-tabs sticky active="{{ tabIndex }}" bind:change="onChangeTab">
+            <van-tab title="菜谱">
+                <block wx:if="{{recipeList.length == 0 }}">
+                    <view class="tip-text">🐱还没发布菜谱噢~</view>
+                </block>
+                <block wx:else>
+                    <block wx:for="{{recipeList}}" wx:key="*this">
+                        <recipe-cross data-index="{{index}}" item="{{item}}"></recipe-cross>
+                    </block>
+                </block>
+
+
+
+            </van-tab>
+            <van-tab title="动态">
+                <block wx:if="{{shareList.length == 0}}">
+                    <view class="tip-text">空空如也~</view>
+                </block>
+                <block wx:else>
+                    <block wx:for="{{shareList}}" wx:key="index" wx:for-item="item">
+                        <share-card data-index="{{index}}" bindlongpress="showHandle"  myId="{{myId}}" item="{{item}}" isUserSelf="{{myId == item.uid}}"></share-card>
+                    </block>
+                </block>
+
+            </van-tab>
+
+        </van-tabs>
+    </view>
+
+
+</view>

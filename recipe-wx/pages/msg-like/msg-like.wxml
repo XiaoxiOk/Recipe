@@ -1,0 +1,49 @@
+<!--pages/msg-like/msg-like.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+<view class="container">
+    <scroll-view scroll-y="true">
+        <view v-if="likeMsgList.length">
+            <block wx:for="{{ likeMsgList }}" wx:for-item="item" wx:key='id'>
+                <view class='msg-card' bindlongpress="showHandle" data-msgid="{{ item.msgId }}">
+                    <!-- 左侧 -->
+                    <view class="l">
+                        <!-- 头像 -->
+                        <view data-index="{{index}}" bindtap="goToOtherUserPage" class="user-info">
+                            <image src='{{resourceRootPath ? resourceRootPath + item.fromUserPhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+                        </view>
+                        <!-- 用户名 + 操作 + 时间 -->
+                        <view class="l_con">
+                            <view class='user-name'>{{ item.fromUserName }}</view>
+                            <view class="tip-text">{{item.textTip}}</view>
+                            <view class="time">{{dateTool.getCommonDate(item.createTime)}}</view>
+                        </view>
+                    </view>
+                     <!-- 右侧 -->
+                <view class="r">
+                    <!-- 图片 + 内容 -->
+                    <view wx:if="{{item.contentType.length>0}}">来自【{{item.contentType}}】</view>
+                    <view wx:if="{{item.contentDetail.length>0}}">{{item.contentDetail}}</view>
+                    <view wx:if="{{item.recipeName!= undefined && item.recipeName.length>0}}">
+                        <image src='{{item.showRecipeImage ? resourceRootPath + item.showRecipeImage : "" }}' class='recipe-cover' mode="scaleToFill"></image>
+                        <view class="recipe-name">{{item.recipeName}}</view>
+                       
+                    </view>
+                </view>
+                </view>
+                <van-divider />
+
+            </block>
+
+        </view>
+    </scroll-view>
+         <!-- 删除消息 -->
+<van-overlay z-index="2" show="{{ isShowHandle }}" bind:click="closeShowHandle">
+    <view class="wrapper">
+        <view class="block">
+            <van-button type="default" block bindtap="toDelMsg">删除</van-button>
+            <van-button type="default" block bindtap="closeShowHandle">取消</van-button>
+        </view>
+    </view>
+</van-overlay>
+<!-- end 删除消息 -->
+</view>

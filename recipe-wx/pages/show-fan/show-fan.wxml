@@ -1,0 +1,31 @@
+<!--pages/show-fan/show-fan.wxml-->
+<view class="container">
+    <scroll-view scroll-y="true">
+        <view v-if="fanList.length">
+            <block wx:for="{{ fanList }}" wx:for-item="item" wx:key='id'>
+                <view class='fan-card' bindtap="" data-fanid="{{ item.userId }}">
+                    <view class="card">
+                        <view class="user-info" data-index="{{index}}" bindtap="goToOtherUserPage">
+
+                            <image src='{{resourceRootPath ? resourceRootPath + item.profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+                            <view class='user-name'>{{ item.userName }}</view>
+                        </view>
+                        <block wx:if="{{!item.mutual}}">
+                            <button class="do-follow-button" data-index="{{index}}" bindtap="updateFollowInfo">
+                                <van-icon name="plus" /> 回关
+                            </button>
+                        </block>
+
+                        <block wx:else="{{item.mutual}}">
+                            <button class="is-mutual-button" data-index="{{index}}" bindtap="updateFollowInfo">
+                                <van-icon name="exchange" />已互关
+                            </button>
+                        </block>
+                    </view>
+                </view>
+                <van-divider />
+            </block>
+
+        </view>
+    </scroll-view>
+</view>

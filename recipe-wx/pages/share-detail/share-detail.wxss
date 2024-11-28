@@ -1,0 +1,207 @@
+/* pages/share-detail/share-detail.wxss */
+
+.usershare-card {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 25rpx 2% 15rpx;
+    margin: 0 auto 10rpx;
+    border: 2rpx solid #eee;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: 0 0 5rpx #999;
+}
+.comment-box{
+    padding: 10rpx 10px 15rpx;
+    margin: 0 auto 10rpx;
+}
+.info {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 2rpx solid rgb(248, 159, 159);  */
+    display: flex;
+    padding: 0 10rpx 10rpx;
+    flex-wrap: wrap;
+    background-color: #fff;
+
+}
+
+.info .avatar {
+    display: inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgb(90, 86, 86);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.info .do-follow-button {
+    display: inline-block;
+    margin: auto;
+    margin-right: 5px !important;
+    width: 150rpx;
+    text-align: center;
+    font-size: 32rpx !important;
+    color: rgb(240, 82, 42);
+    border-radius: 30px;
+    background-color: rgb(248, 215, 215);
+}
+
+.info .user-name {
+    display: inline-block;
+    margin: auto 15px;
+}
+
+.info .un-follow-button {
+    display: inline-block;
+    margin: auto;
+    margin-right: 5px !important;
+    width: 150rpx;
+    font-size: 30rpx !important;
+    color: rgb(252, 162, 162);
+    border-radius: 30px;
+    background-color: rgb(245, 240, 240);
+}
+
+.content {
+    display: block;
+    font-size: 40rpx;
+    line-height: 60rpx;
+    margin: 15rpx 0;
+}
+
+.content_img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.5%;
+}
+
+.content_img image {
+    width: 32%;
+    margin: 0 0.5%;
+    height: 200rpx;
+}
+
+.usershare-card .imgsBox {
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.usershare-card .imgsBox .shareImg {
+    display: inline-block;
+    width: 100rpx;
+    height: 200rpx;
+
+}
+
+.usershare-card .handle-line {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usershare-card .handle-line .handle-icon {
+    width: 60rpx;
+    height: 70rpx;
+}
+
+.handle-line view {
+    display: flex;
+    align-items: center;
+}
+
+.show-counts {
+    margin: 0 25rpx;
+}
+
+.usershare-card .handle-line .time-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 15rpx;
+}
+
+
+/* 评论 & 回复 */
+
+.show-input-css{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10rpx 10rpx 30rpx;
+    align-items: center;
+}
+.show-input-css input{
+    border: 1px solid #ddd;
+    width: calc(100% - 200rpx);
+    height: 70rpx;
+    box-sizing: border-box;
+    padding-left: 10rpx;
+    font-size: 40rpx;
+    line-height: 70rpx;
+}
+.show-input-css button{
+    background-color: red;
+    color: #fff;
+    width: 180rpx;
+    height: 80rpx;
+    font-size: 40rpx;
+    line-height: 80rpx;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.reply-box{
+    box-sizing: border-box;
+    padding-left: 90rpx;
+    padding-right: 10rpx;
+}
+.reply-tip{
+    display: flex;
+   font-size: 35rpx;
+   display:block;
+   color: #4682B4;
+   margin-top: 2px;
+    width: 100%;
+}  
+
+/* end 评论 & 回复 */
+/* 图像 & 视频 */
+.content_img{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.5%;
+}
+.content_img image{
+    width: 32%;
+    margin: 0 0.5%;
+    height: 200rpx;
+}
+.usershare-card .media-box{
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+.usershare-card .media-box .shareImg{
+    display: inline-block;
+    width: 100rpx;
+    height: 200rpx;
+    
+}
+.show-media{
+    width: 32%;
+    margin: 0 0.5%;
+    height: 200rpx;
+}
+/* end 图像 & 视频 */

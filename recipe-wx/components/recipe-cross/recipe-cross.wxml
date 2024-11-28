@@ -1,0 +1,19 @@
+<!--components/recipe-cross/recipe-cross.wxml-->
+<view class='recipe-items' bindtap='toRecipePage' data-recipeid="{{item.id}}">
+       
+       <image src='{{ item.showImage ? resourceRootPath + item.showImage : "" }}' class='showImg' ></image>
+      
+       <view class='title'>{{item.recipeName}}</view>
+       <view class='detail'>{{item.detail}} </view>
+       <van-tag wx:if="{{ item.state == 1}}" color="#ffe1e1" text-color="#ad0000" plain>已被下架</van-tag>
+       <view wx:if="{{ item.state == 0}}" class="difficulty">
+        <text>难度</text>
+        <van-rate readonly value="{{ item.difficulty}}" size="16px" count="4"/>
+        </view>
+        <view class='user-info'>
+            <image src='{{resourceRootPath ? resourceRootPath + item.profilePhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+            <view class='user-name'>{{ item.userName }}</view>
+           
+        </view>
+       
+   </view>

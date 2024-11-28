@@ -1,0 +1,21 @@
+/* pages/message-index/message-index.wxss */
+
+.show-icons{
+    display: flex;
+}
+.show-unit{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+.icon-img{
+    width: 160rpx;
+    height: 160rpx;
+}
+.show-sys-msg{
+    text-align: center;
+    margin-top: 100rpx;
+}

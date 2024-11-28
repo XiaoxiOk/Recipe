@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xi.mapper.RecipeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xi.model.pojo.Recipe">
+        <id column="id" property="id" />
+        <result column="recipe_name" property="recipeName" />
+        <result column="detail" property="detail" />
+        <result column="user_id" property="userId" />
+        <result column="star" property="star" />
+        <result column="state" property="state" />
+        <result column="difficulty" property="difficulty" />
+        <result column="show_image" property="showImage" />
+        <result column="media_url" property="mediaUrl" />
+        <result column="sec_sort_id" property="secSortId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, recipe_name, detail, user_id, star, state, difficulty, show_image, media_url, sec_sort_id, create_time, update_time
+    </sql>
+
+</mapper>

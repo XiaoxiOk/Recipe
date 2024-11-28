@@ -1,0 +1,51 @@
+<!--pages/search-recipe-show/search-recipe-show.wxml-->
+<view class='container'>
+
+    <!-- 搜索框 -->
+    <view class='fixed-box'>
+        <view class='search-bar'>
+            <view class='tag-search-box' wx:if="{{isShowTag==='true'}}">
+
+                <input class='sear-input' value="{{recipeName}}" bindinput='getSearchContent' confirm-type='search' bindconfirm='toSearchConfirm'>
+
+                </input>
+                <van-tag plain round wx:if="{{ show.success }}" closeable size="medium" type="danger" id="success" bind:close="onClose">
+                    {{tagName}}
+                </van-tag>
+                <image src='../../images/icon/search.png' class='search-img'></image>
+
+            </view>
+            <view class='search-box' wx:else="{{isShowTag==='false'}}">
+                <input class='sear-input' value="{{recipeName}}" bindinput='getSearchContent' confirm-type='search' bindconfirm='toSearchConfirm'></input>
+                <image src='../../images/icon/search.png' class='search-img'></image>
+            </view>
+            <view class='search-list-img' bindtap='changeShowType'>
+                <image wx:if="{{showType==1}}" src='../../images/icon/search-col.png'></image>
+                <image wx:if="{{showType==2}}" src='../../images/icon/search-col2.png'></image>
+            </view>
+        </view>
+       
+    </view>
+
+    <!-- 菜谱列表 -->
+    <view class='recipe-list'>
+        <block wx:if="{{recipeList.length == 0}}">
+            <view class="tip-text">空空如也~</view>
+        </block>
+        <!-- 横向列表 -->
+        <view class='prod-show' wx:if="{{showType==1}}">
+            <block wx:for="{{recipeList}}" wx:key="id">
+                <recipe-cross item="{{item}}"></recipe-cross>
+            </block>
+        </view>
+
+        <!-- 纵向列表 -->
+        <view class='cont-item' wx:if="{{showType==2}}">
+            <block wx:for='{{recipeList}}' wx:key="id">
+                <recipe-card item="{{item}}"></recipe-card>
+            </block>
+        </view>
+    </view>
+
+</view>
+<wxs module="wxs" src="../../wxs/number.wxs" />

@@ -1,0 +1,21 @@
+<!--pages/message-index/message-index.wxml-->
+<view class="container">
+<view class="show-icons">
+
+<view class="show-unit" bindtap="goToMsgFollowPage">
+    <image src="/images/icon/msg-fan.png" class="icon-img"></image>
+    <text>新增关注</text>
+</view>
+<view class="show-unit" bindtap="goToMsgLikePage">
+    <image src="/images/icon/msg-like.png" class="icon-img"></image>
+    <text>赞与收藏</text>
+</view>
+<view class="show-unit" bindtap="goToMsgCommentPage">
+    <image src="/images/icon/msg-comment.png" class="icon-img"></image>
+    <text>评论与回复</text>
+</view>
+</view>
+<view class="show-sys-msg">
+<text>系统消息</text>
+</view>
+</view>

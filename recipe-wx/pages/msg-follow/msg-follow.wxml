@@ -1,0 +1,35 @@
+<!--pages/msg-follow/msg-follow.wxml-->
+<wxs src="../../wxs/dateUtils.wxs" module="dateTool"></wxs>
+ <view class="container">
+    <scroll-view scroll-y="true">
+        <view v-if="followMsgList.length">
+            <block wx:for="{{ followMsgList }}" wx:for-item="item" wx:key='id'>
+                <view class='msg-card' bindlongpress="showHandle" data-msgid="{{ item.msgId }}">
+                    <view class="user-info" data-index="{{index}}" bindtap="goToOtherUserPage">
+                        <view class="column-info" >
+                            <image src='{{resourceRootPath ? resourceRootPath + item.fromUserPhoto : "" }}' class='avatar' mode="scaleToFill"></image>
+                            <view>
+                                <view class='user-name'>{{ item.fromUserName }}</view>
+                        <view class="tip-text">关注了你</view>
+                            </view>
+                        </view>
+                        <view>{{dateTool.getCommonDate(item.createTime)}}</view>
+                    </view>
+                </view>
+                <van-divider />
+            </block>
+
+        </view>
+    </scroll-view>
+
+    <!-- 删除消息 -->
+<van-overlay z-index="2" show="{{ isShowHandle }}" bind:click="closeShowHandle">
+    <view class="wrapper">
+        <view class="block">
+            <van-button type="default" block bindtap="toDelMsg">删除</van-button>
+            <van-button type="default" block bindtap="closeShowHandle">取消</van-button>
+        </view>
+    </view>
+</van-overlay>
+<!-- end 删除消息 -->
+</view> 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xi.mapper.AdMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xi.model.pojo.Ad">
+        <id column="id" property="id" />
+        <result column="position" property="position" />
+        <result column="img_url" property="imgUrl" />
+        <result column="keyword" property="keyword" />
+        <result column="target_url" property="targetUrl" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, position, img_url, keyword, target_url
+    </sql>
+
+</mapper>

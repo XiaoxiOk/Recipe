@@ -1,0 +1,26 @@
+/* pages/show-my-share/show-my-share.wxss */
+.share-show {
+    background: #fff;
+    margin-top: 0rpx;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.block {
+    width: 120px;
+    background-color: #fff;
+}
+.tip-text{
+    box-sizing: border-box;
+    width:100%;
+    height: 200px;
+    display: flex;
+   margin-top: 20px;
+   align-items: center;
+   justify-content:center;
+}

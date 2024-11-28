@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xi.mapper.FollowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xi.model.pojo.Follow">
+        <id column="id" property="id" />
+        <result column="from_uid" property="fromUid" />
+        <result column="to_uid" property="toUid" />
+        <result column="mutual" property="mutual" />
+
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, from_uid, to_uid, mutual
+    </sql>
+
+</mapper>

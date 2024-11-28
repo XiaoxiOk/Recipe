@@ -1,0 +1,19 @@
+var isNotNull = function isNotNull( str ){
+    console.log("str:",str,str.length)
+    if ( str + '' === 'null' || str + '' === 'undefined'){
+        return false;
+    } 
+    if( str == null ) {
+        return false;
+    }
+    if( str.length == 0){
+        console.log('return false')
+        return false;
+    } 
+   return true;
+     
+    }
+
+    module.exports = {
+        isNotNull: isNotNull,
+      }

@@ -1,0 +1,32 @@
+/* pages/add-share/add-share.wxss */
+.container{
+    margin: 30px 5px;
+}
+
+.van-uploader{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.van-uploader__wrapper{
+    width: 100%;
+    padding: 20rpx 10rpx 20rpx;
+    box-sizing: border-box;
+}
+.van-uploader__preview{
+    width: 32% !important;
+    height: auto !important;
+    box-sizing: border-box;
+    margin: 0 .65% !important;
+}
+.van-uploader__preview-image,.van-uploader__upload{
+    width: 100% !important;
+    height: 200rpx !important;
+    margin-bottom: 5rpx;
+}
+.van-uploader__upload{
+    width: 32% !important;
+    margin: 0 .65% !important;
+    box-sizing: border-box;
+    border: 1rpx solid rgb(214, 214, 214);
+}
